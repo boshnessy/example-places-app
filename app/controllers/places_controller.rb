@@ -12,7 +12,7 @@ class PlacesController < ApplicationController
     if place.save
       render json: place.as_json
     else
-      render json: {errors: place.errors.full_messages}, status: bad_request
+      render json: {errors: place.errors.full_messages}, status: :bad_request
     end
   end
 end

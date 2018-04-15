@@ -6,7 +6,8 @@ var HomePage = {
     return {
       message: "Example Places",
       places: [],
-      newPlace: {name: "", address: ""}
+      newPlace: {name: "", address: ""},
+      errors: []
     };
   },
   created: function() {
@@ -23,6 +24,10 @@ var HomePage = {
       axios.post("/places", params).then(function(response) {
         this.places.push(response.data);
         this.newPlace = "";
+        this.errors = [];
+      }.bind(this)).catch(function(error) {
+        console.log(error.response.data.errors);
+        this.errors = error.response.data.errors;
       }.bind(this));
     }
   },

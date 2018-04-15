@@ -21,10 +21,15 @@
   <div class="vue-component">
 
     <h1>{{ message }}</h1>
-    <li v-for="place in places">
-      {{ place.name }} at {{ place.address }}
-    </li>
+    <div v-for="place in places">
+      <h2>{{ place.name }}</h1> 
+      <h4>{{ place.address }}</h4>
+    </div>
+    <hr>
 
+    <ul>
+      <li>{{ errors }}</li>
+    </ul>
     <p>name: <input v-model="newPlace.name"></p>
     <p>address: <input v-model="newPlace.address"></p>
     <button v-on:click="addPlace()">Add place</button>
